@@ -1,0 +1,19 @@
+Sitemap: http://jeffkereakoglow.com/sitemap.xml
+
+User-agent: IRLbot
+Crawl-delay: 3600
+
+User-agent: *
+Disallow: /CNAME
+
+User-agent: *
+Disallow: /README.md
+
+User-agent: *
+Disallow: /LICENSE
+
+User-agent: *
+Disallow: /Gemfile
+
+User-agent: *
+Disallow: /Gemfile.lock
