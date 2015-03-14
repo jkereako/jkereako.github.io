@@ -1,5 +1,17 @@
+lang: en-US
+#url: http://jkereako.github.io
+
+title: Jeff Kereakoglow
+description: "Jeff's blog"
+permalink: /:title/
+timezone: America/New_York
+
+
 # Serving
 detach:  false
 port:    4000
 host:    127.0.0.1
-baseurl: "jkereako.github.io"
+#baseurl: "jkereako.github.io"
+
+groups:
+  - Git

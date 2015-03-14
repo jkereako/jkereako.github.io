@@ -1,0 +1,19 @@
+---
+layout: nil
+---
+
+/* TEAM */
+
+Mister: Jeff Kereakoglow
+Site: http://alexisdigital.com
+Contact: jkereako [at] alexisdigital.com
+Twitter: @alexis_digital
+Location: Massachusetts
+
+/* SITE */
+
+Last update: {{ site.time | date: "%Y/%-m/%-d" }}
+Language: English
+Standards: HTML5, CSS3
+Software: Jekyll, Rake
+IDE: Atom

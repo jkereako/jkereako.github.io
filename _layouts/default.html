@@ -1,17 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ site.lang }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="author" content="Jeff Kereakoglow"/>
     <meta name="revisit-after" content="30 days"/>
-    <link rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"/>
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl}}/assets/stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl}}/assets/stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl}}/assets/stylesheets/print.css" media="print">
 
-    <title>jkereako.github.io by jkereako</title>
+    {% if page.id %}
+    <title>{{ page.title | replace:'<br/>',' ' | strip_html }} - {{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | strip_html }}"/>
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}"/>
+    {% else %}
+    <title>{{ page.title | strip_html }}</title>
+    <meta name="description" content="{{ site.description | strip_html }}"/>
+    <link rel="canonical" href="{{ site.url }}"/>
+    {% endif %}
+
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:creator" content="@alexis_digital"/>
+    {% if page.id %}
+    <meta name="twitter:title" content="{{ page.title }}"/>
+    <meta name="twitter:description" content="{{ page.excerpt | strip_html | escape }}"/>
+    {% else %}
+    <meta name="twitter:title" content="{{ site.title }}"/>
+    <meta name="twitter:description" content="{{ site.description | strip_html | escape}}"/>
+    {% endif %}
+    <meta property="twitter:account_id" content="{{ site.twitter }}"/>
+
+    <meta property="og:site_name" content="{{ site.title }}"/>
+    <meta property="og:image" content="{{ site.url }}/touch-icon-ipad-retina.png"/>
+    {% if page.id %}
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+    <meta property="og:description" content="{{ page.excerpt | strip_html | escape }}"/>
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}"/>
+    <meta property="article:modified_time" content="{{ site.time | date_to_xmlschema }}"/>
+    <meta property="article:tag" content="{{ page.categories | join: ',' }}"/>
+    <meta property="article:publisher" content="https://www.facebook.com/AlexisDigitalMedia">
+    {% else %}
+    <meta property="og:title" content="{{ site.title }}"/>
+    <meta property="og:url" content="{{ site.url }}"/>
+    <meta property="og:description" content="{{ site.description | strip_html | escape}}" />
+    {% endif %}
+    <link rel="license" href="http://creativecommons.org/licenses/by/4.0/"/>
+    <link rel="author" type="text/plain" href="{{ site.url }}/humans.txt"/>
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/print.css" media="print">
   </head>
 
   <body>
@@ -26,11 +63,9 @@
       </div>
     </header>
 
-    <div class="container">
-      <section id="main_content">
-        {{ content }}
-      </section>
-    </div>
+    <div class="container" id="main" role="main">
+     {{ content }}
+   </div>
 
       <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
