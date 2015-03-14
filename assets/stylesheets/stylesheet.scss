@@ -484,18 +484,16 @@ header h2 {
 }
 
 article header {
-  padding:0 0 10px 0;
   background: none;
+  padding: 0;
 }
 
 article header h1 {
-  font-size:32px;
-  background: none;
+  text-indent: 0 !important;
 }
 
-article header h2 {
-  font-size:18px;
-  background: none;
+article header h1:before {
+  content: none !important;
 }
 
 .inner {
