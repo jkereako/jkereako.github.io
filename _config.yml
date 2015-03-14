@@ -5,7 +5,7 @@ title: Jeff Kereakoglow
 description: "Jeff's blog"
 timezone: America/New_York
 
-pygments: true
+highlighter: pygments
 
 detach:  false
 port:    4000
