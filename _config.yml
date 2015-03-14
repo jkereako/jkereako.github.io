@@ -1,7 +1,7 @@
 language: en-US
 name: Jeff Kereakoglow
-title: Jeff Kereakoglow
-description: "Jeff's blog"
+title: J. Kereakoglow
+description: Ideas, notes, code
 timezone: America/New_York
 highlighter: pygments
 permalink: /:year/:month/:title/
