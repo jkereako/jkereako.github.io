@@ -3,9 +3,10 @@ name: Jeff Kereakoglow
 title: Jeff Kereakoglow
 description: "Jeff's blog"
 timezone: America/New_York
-
 highlighter: pygments
+permalink: /:year/:month/:title/
 
+#-- Local configuration
 detach:  false
 port:    4000
 host:    127.0.0.1

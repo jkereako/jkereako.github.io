@@ -1,7 +1,7 @@
 ---
 title: How to create a pull-request branch
 author: Jeff Kereakoglow
-category: Git
+category: GitHub
 layout: post
 ---
 ## Problem
