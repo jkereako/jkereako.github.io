@@ -5,7 +5,7 @@ description: Ideas, notes, code
 timezone: America/New_York
 highlighter: pygments
 permalink: /:year/:month/:title/
-
+url: http://jeffkereakoglow.com
 #-- Local configuration
 detach:  false
 port:    4000
