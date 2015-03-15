@@ -7,8 +7,9 @@ layout: default
     <h1 class="title" itemprop="name">
       <a href="{{ page.url }}">{{ page.title | camel_break }}</a>
     </h1>
-
-    <strong>Written on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | ordinalize }}</time></strong>
+    <small>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_string }}</time>
+    </small>
   </header>
 
   <div class="content" itemprop="articleBody" data-swiftype-index="true">
