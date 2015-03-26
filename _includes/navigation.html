@@ -1,4 +1,6 @@
+{% assign url = page.url | remove:'index.html' %}
 <nav class="blog-nav">
-  <a class="blog-nav-item" href="/">Home</a>
-  <a class="blog-nav-item" href="about">About</a>
+{% for item in site.data.navigation %}
+  <a class="blog-nav-item {% if url == item.url %}active{% endif %}" href="{{ item.url }}" title="{{ item.text }}">{{ item.text }}</a>
+{% endfor %}
 </nav>
