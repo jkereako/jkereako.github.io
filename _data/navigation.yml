@@ -1,5 +1,8 @@
 - text: Home
   url: /
 
+- text: Reading
+  url: /reading/
+
 - text: About
   url: /about/
