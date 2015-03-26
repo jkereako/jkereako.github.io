@@ -11,11 +11,16 @@ $color_alabaster_approx: #f9f9f9;
 $mercury: #e5e5e5;
 
 //fonts
-$font_0: Georgia;
+$content_font: Georgia;
 $font_1: Times New Roman;
 $font_2: Times;
 $font_3: serif;
-$font_4: Helvetica Neue;
+$title_font: Roboto Slab;
 $font_5: Helvetica;
 $font_6: Arial;
 $font_7: sans-serif;
+
+//urls
+$google_font_base_url: "http://fonts.googleapis.com/css?family=";
+$google_fonts:("Roboto+Slab:400,600,700,800",
+                  "Open+Sans:400,600,700,800");

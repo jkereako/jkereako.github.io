@@ -5,19 +5,23 @@
 
 @import "variables";
 
+@each $font in $google_fonts {
+	@import url($google_font_base_url + $font);
+}
+
 //@extend-elements
 //original selectors
 //h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
 %extend_1 {
 	margin-top: 0;
-	font-family: $font_4, $font_5, $font_6, $font_7;
+	font-family: $title_font, $font_5, $font_6, $font_7;
 	font-weight: normal;
 	color: $color_mine_shaft_approx;
 }
 
 
 body {
-	font-family: $font_0, $font_1, $font_2, $font_3;
+	font-family: $content_font, $font_1, $font_2, $font_3;
 	color: $color_fuscous_gray_approx;
 }
 h1 {
@@ -77,6 +81,8 @@ h6 {
 	padding: 10px;
 	font-weight: 500;
 	color: $color_botticelli_approx;
+	font-family: $title_font;
+	text-transform: uppercase;
 	&:hover {
 		color: $white;
 		text-decoration: none;
@@ -98,7 +104,8 @@ h6 {
 }
 .blog-description {
 	font-size: 20px;
-	color: $color_mountain_mist_approx;
+	color: $white;
+	font-family: $title_font;
 }
 .blog-main {
 	font-size: 18px;
