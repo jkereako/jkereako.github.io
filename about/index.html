@@ -3,9 +3,7 @@ layout: default
 title: Jeff Kereakoglow::About
 date: 2015-03-27 13:24:00
 ---
-<small>
-  <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date_to_string }}</time>
-</small>
+{% include last_update.html %}
 <p>
   I contract as an iOS developer for <a href="https://www.greateratlantic.fisheries.noaa.gov" target="_blank">NOAA Fisheries</a> and on the side I develop applications in Ruby and Python. I'm currently making a Ruby gem just for the hell of it.
 </p>

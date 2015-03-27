@@ -7,9 +7,7 @@ layout: default
     <h1 class="title" itemprop="name">
       <a href="{{ page.url }}">{{ page.title | camel_break }}</a>
     </h1>
-    <small>
-      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date_to_string }}</time>
-    </small>
+    {% include last_update.html %}
   </header>
 
   <div class="content" itemprop="articleBody" data-swiftype-index="true">
