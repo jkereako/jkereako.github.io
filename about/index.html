@@ -4,12 +4,7 @@ title: About me
 date: 2015-03-27 13:24:00
 ---
 <article id="main-content" role="article" itemscope itemtype="http://schema.org/Article">
-  <header role="heading">
-    <h1 class="title" itemprop="name">
-      <a href="{{ page.url }}">{{ page.title | camel_break }}</a>
-    </h1>
-    {% include last_update.html %}
-  </header>
+  {% include page_header.html %}
 
   <div class="content" itemprop="articleBody" data-swiftype-index="true">
     <p>
