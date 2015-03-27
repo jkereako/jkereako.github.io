@@ -15,24 +15,29 @@ excerpt: What I done read.
       I'm currently reading <b><a href="http://www.amazon.com/Lonesome-Dove-Novel-Larry-McMurtry/dp/1439195269" target="_blank">Lonesome Dove</a></b>. It's a western written by Larry McMurtry. Never have read anything like it before but it was recommended to me by my best bud.
     </p>
 
-    <h3>2015</h3>
-    <ul>
-      <li>Kitchen Confidential</li>
-      <li>A Dance with Dragons</li>
-    </ul>
-
-    <h3>2014</h3>
-    <ul>
-      <li>People of the Bayou</li>
-      <li>Mile Marker Zero</li>
-      <li>To Have and To Have Not</li>
-      <li>The Old Man and The Sea</li>
-      <li>Game of Thrones</li>
-      <li>Clash of Kings</li>
-      <li>Feast for Crows</li>
-      <li>Storm of Swords</li>
-      <li>Divergent</li>
-      <li>The Art Forger</li>
-    </ul>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Books read</div>
+      <div class="panel-body">
+        <p>Here's a list of the books I've read</p>
+      </div>
+      <!-- Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for book in site.data.books %}
+          <tr>
+            <th scope="row">{{ forloop.index }}</th>
+            <td>{{ book.title }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 </article>
