@@ -1,7 +1,7 @@
 ---
 title: Rename several file extensions in the command line
 author: Jeff Kereakoglow
-categories : [Code]
+category : Code
 excerpt: Quick shell script to rename file extensions
 layout: post
 ---

@@ -1,7 +1,7 @@
 ---
 title: How to create a pull-request branch
 author: Jeff Kereakoglow
-categories : [Code, Git, GitHub]
+category : Code
 excerpt: The right way to make a pull-request
 layout: post
 ---
