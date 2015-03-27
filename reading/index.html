@@ -12,17 +12,19 @@ excerpt: What I done read.
       Reading is a life-skill. In fact, it was a computer science professor who made me realize this. <a href="http://www.cs.uml.edu/~canning/101/101.html" target="_blank" title="91.101 Computing I">Computing I with Jim Canning</a> included an introduction to programming with C as well as <a href="http://www.gutenberg.org/ebooks/37134" target="_blank"><b>The Elements of Style</b></a>, the preamble to the Constitution, <a href="http://www.imdb.com/title/tt0044706/" target="_blank" title="High Noon"><b>High Noon</b></a> and <a href="http://www.geom.uiuc.edu/~banchoff/Flatland/" target="blank" title="Flatland: A romance of many dimensions"><b>Flatland</b></a>. <a href="http://www.cs.uml.edu/~canning/TeamGauss.html" target="_blank" title="Jim's Enrichment Program">Here's the webpage for his enrichment program</a>. Notice the healthy mix of programming with fiction.
     </p>
     <p>
-      I'm currently reading <b><a href="http://www.amazon.com/Lonesome-Dove-Novel-Larry-McMurtry/dp/1439195269" target="_blank">Lonesome Dove</a></b>. It's a western written by Larry McMurtry. Never have read anything like it before but it was recommended to me by my best bud.
+      I'm in the middle of <b><a href="http://www.amazon.com/Lonesome-Dove-Novel-Larry-McMurtry/dp/1439195269" target="_blank">Lonesome Dove</a></b>. It's a western written by Larry McMurtry. Never have read anything like it before but it was recommended to me by my best bud.
     </p>
 
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading">Books read</div>
       <div class="panel-body">
-        <p>Here's a list of the books I've read</p>
+        <p>
+          Below is a list of the books I've read. The top-most item is the book I'm currently reading.
+        </p>
       </div>
       <!-- Table -->
-      <table class="table">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>#</th>
@@ -31,7 +33,7 @@ excerpt: What I done read.
         </thead>
         <tbody>
           {% for book in site.data.books %}
-          <tr>
+          <tr {% if book.active %} class="info"{% endif %}>
             <th scope="row">{{ forloop.index }}</th>
             <td>{{ book.title }}</td>
           </tr>
