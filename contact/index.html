@@ -1,0 +1,27 @@
+---
+layout: default
+title: Contact me
+date: 2015-03-27 16:24:00
+excerpt: Get in touch with me
+---
+<article id="main-content" role="article" itemscope itemtype="http://schema.org/Article">
+  {% include page_header.html %}
+  <div class="content" itemprop="articleBody" data-swiftype-index="true">
+    <p>
+      Wanna get in touch? Fill out the form below.
+    </p>
+    <p>
+      <form action="https://getsimpleform.com/messages?form_api_token=66baa57526b8893b1259103c05ebb48e" method="post">
+        <div class="form-group">
+          <label for="reply-to">Email address</label>
+          <input type="email" class="form-control" id="reply-to" name="reply-to" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </p>
+  </div>
+</article>
