@@ -6,6 +6,12 @@ excerpt: Get in touch with me
 scripts:
   - /assets/javascripts/contact.js
 ---
+<div id="flash" class="alert" role="alert" style="display:none;">
+  <span class="glyphicon" aria-hidden="true"></span>
+  <span class="title sr-only"></span>
+  <span class="message"></span>
+</div>
+
 <article id="main-content" role="article" itemscope itemtype="http://schema.org/Article">
   {% include page_header.html %}
   <div class="content" itemprop="articleBody" data-swiftype-index="true">
@@ -13,7 +19,7 @@ scripts:
       Wanna get in touch? Fill out the form below.
     </p>
     <p>
-       <form action="https://getsimpleform.com/messages?form_api_token=66baa57526b8893b1259103c05ebb48e" method="post"> 
+       <form action="https://getsimpleform.com/messages?form_api_token=66baa57526b8893b1259103c05ebb48e" method="post">
         <div class="form-group">
           <label for="reply-to">Email address</label>
           <input type="email" class="form-control" id="reply-to" name="reply-to" placeholder="Enter email" required>
