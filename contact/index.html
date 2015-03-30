@@ -6,9 +6,11 @@ excerpt: Get in touch with me
 scripts:
   - /assets/javascripts/contact.js
 ---
-<div id="flash" class="alert" role="alert" style="display:none;">
-  <span class="glyphicon" aria-hidden="true"></span>
-  <span class="title sr-only"></span>
+<div id="flash" class="alert alert-dismissible" role="alert" style="display:none;">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong><span class="title"></span></strong>
   <span class="message"></span>
 </div>
 

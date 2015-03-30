@@ -15,7 +15,7 @@ class ContactFormValidation
            				.attr 'action'
             data = $ @form
             				.serialize()
-            @send url, data, flashDiv
+            @send url, data, @flashDiv
 
     @markup = (field, success)->
       div = field.parentElement
@@ -55,15 +55,21 @@ class ContactFormValidation
           method: 'POST'
           error: (jqXHR, textStatus, errorThrown) ->
             $ flashDiv
-              .find 'title'
+              .removeClass 'alert-danger'
+              .addClass 'alert-danger'
+            $ flashDiv
+              .find '.title'
               .text 'Error'
           success: (data, textStatus, jqXHR) ->
             $ flashDiv
-              .find 'title'
+              .removeClass 'alert-success'
+              .addClass 'alert-success'
+            $ flashDiv
+              .find '.title'
               .text 'Success!'
           complete: (data, textStatus, jqXHR) ->
             $ flashDiv
-              .find 'message'
+              .find '.message'
               .text textStatus
             # Show the flash `<div>` and then hide it after 7 seconds
             $ flashDiv
