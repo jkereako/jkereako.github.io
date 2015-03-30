@@ -7,14 +7,14 @@ class ContactFormValidation
         .click (event) =>
           event.preventDefault()
 
-          isValid = false
+          results = (@markup input, @validate input for input in $ @form
+            .find 'input, textarea')
 
-          @markup input, (isValid = isValid && @validate input) for input in $ @form
-            .find '.form-control'
-
-          if isValid
-            url = $ @form.attr 'action'
-            data = $ @form.serialize()
+          if false not in results
+            url = $ @form
+           				.attr 'action'
+            data = $ @form
+            				.serialize()
             @send url, data, flashDiv
 
     @markup = (field, success)->
@@ -25,23 +25,25 @@ class ContactFormValidation
 
       if success
         $ div
-          .removeClass 'has-success'
-          .addClass 'has-success'
+          .removeClass 'has-error'
 
       else
           $ div
             .removeClass 'has-error'
             .addClass 'has-error'
 
+      success
+
     @validate = (field) ->
+      retVal = true
       if field.value is ''
         retVal = false
 
-      if field.type is 'email'
+      else if field.type is 'email'
         pattern = ///[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?///
 
         if field.value.match pattern
-          retVal =true
+          retVal = true
         else
           retVal = false
       retVal
