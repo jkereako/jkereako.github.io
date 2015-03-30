@@ -6,16 +6,20 @@ class ContactFormValidation
       .find 'button[type="submit"]'
         .click (event) =>
           event.preventDefault()
+          @submitButton = event.target
+          @flashDiv.hide()
 
           results = (@markup input, @validate input for input in $ @form
             .find 'input, textarea')
 
           if false not in results
+            $ @submitButton
+            	.prop 'disabled', true
             url = $ @form
            				.attr 'action'
             data = $ @form
             				.serialize()
-            @send url, data, @flashDiv
+            @send url, data, @submitButton, @flashDiv
 
     @markup = (field, success)->
       div = field.parentElement
@@ -48,12 +52,14 @@ class ContactFormValidation
           retVal = false
       retVal
 
-    @send = (url, data, flashDiv) ->
+    @send = (url, data, submitButton, flashDiv) ->
        $.ajax
           url: url
           data: data
           method: 'POST'
           error: (jqXHR, textStatus, errorThrown) ->
+            $ submitButton
+            	.prop 'disabled', false
             $ flashDiv
               .removeClass 'alert-danger'
               .addClass 'alert-danger'
@@ -73,8 +79,8 @@ class ContactFormValidation
               .text textStatus
             # Show the flash `<div>` and then hide it after 7 seconds
             $ flashDiv
-              .toggle 'slow'
+              .show 'slow'
                 .delay 7000
-                  .toggle 'slow'
+                  .hide 'slow'
 
 contactForm = new ContactFormValidation $('form'), $('#flash')
