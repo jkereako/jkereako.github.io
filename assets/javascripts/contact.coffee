@@ -2,6 +2,48 @@
 ---
 class ContactFormValidation
   constructor: (@form, @flashDiv) ->
+    class Cookie
+      # Class methods
+      constructor: (@name, value, expiryInDays = 0) ->
+        @expiry = ''
+        if expiryInDays
+          date = new Date()
+          date.setTime date.getTime() + (expiryInDays * 24 * 60 * 60 * 1000)
+          @expiry = date.toGMTString()
+
+        @value = switch
+          when typeof value is 'string' or typeof value is 'number' then value
+          when typeof value is 'object' then JSON.stringify value
+
+      @find = (name) ->
+        return cookie for cookie in document.cookie.split ';' when !!~cookie.indexOf name
+
+      # Public methods
+      unserializedValue: =>
+        cookieStr = Cookie.find @name
+
+        if not cookieStr
+          return false
+
+        escapedValue = cookieStr
+        .split('=')[1]
+        unescapedValue = unescape escapedValue
+        try
+          JSON.parse unescapedValue
+        catch
+          unescapedValue
+
+      save: =>
+        document.cookie = "#{@name}=#{escape @value}; expires=#{@expiry}; path=/"
+
+      del: =>
+        document.cookie = "#{@name}=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path="
+
+    if not Cookie.find 'state'
+      object =
+    	  'didContact':true
+      cookie = new Cookie 'state', object, 7
+
     $ @form
       .find 'button[type="submit"]'
         .click (event) =>
@@ -58,6 +100,12 @@ class ContactFormValidation
           data: data
           method: 'POST'
           error: (jqXHR, textStatus, errorThrown) ->
+            message = switch
+              when textStatus is 'abort' then 'The operation has been cancelled.'
+              when textStatus is 'error' then 'Unknown error.'
+              when textStatus is 'parsererror' then 'Failed parsing the response.'
+              when textStatus is 'timeout' then 'The operation timed-out.'
+
             $ submitButton
             	.prop 'disabled', false
             $ flashDiv
@@ -66,6 +114,9 @@ class ContactFormValidation
             $ flashDiv
               .find '.title'
               .text 'Error'
+            $ flashDiv
+              .find '.message'
+              .text message
           success: (data, textStatus, jqXHR) ->
             $ flashDiv
               .removeClass 'alert-success'
@@ -73,10 +124,10 @@ class ContactFormValidation
             $ flashDiv
               .find '.title'
               .text 'Success!'
-          complete: (data, textStatus, jqXHR) ->
             $ flashDiv
               .find '.message'
-              .text textStatus
+              .text 'Message successfully sent.'
+          complete: (jqXHR, textStatus) ->
             # Show the flash `<div>` and then hide it after 7 seconds
             $ flashDiv
               .show 'slow'
