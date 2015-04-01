@@ -56,7 +56,7 @@ class ContactFormValidation
 
           if false not in results
             $ @submitButton
-            	.prop 'disabled', true
+            .prop 'disabled', true
             url = $ @form
            				.attr 'action'
             data = $ @form
@@ -64,34 +64,40 @@ class ContactFormValidation
             @send url, data, @submitButton, @flashDiv
 
     @markup = (field, success)->
-      div = field.parentElement
-      $ div
-        .removeClass 'has-feedback'
-        .addClass 'has-feedback'
+      parentDiv = field.parentElement
+      $ parentDiv
+      .removeClass 'has-feedback'
+      .addClass 'has-feedback'
 
       if success
-        $ div
-          .removeClass 'has-error'
+        $ field
+        .next 'span.glyphicon-remove'
+        .hide 'fast'
+        $ parentDiv
+        .removeClass 'has-error'
 
       else
-          $ div
-            .removeClass 'has-error'
-            .addClass 'has-error'
+        $ field
+        .next 'span.glyphicon-remove'
+        .show 'fast'
+        $ parentDiv
+        .removeClass 'has-error'
+        .addClass 'has-error'
 
       success
 
     @validate = (field) ->
       retVal = true
+
       if field.value is ''
-        retVal = false
-
-      else if field.type is 'email'
-        pattern = ///[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?///
-
-        if field.value.match pattern
-          retVal = true
-        else
+        if field.required
           retVal = false
+      else
+        if field.type is 'email'
+          pattern = ///[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?///
+
+          if not field.value.match pattern
+            retVal = false
       retVal
 
     @send = (url, data, submitButton, flashDiv) ->
@@ -107,31 +113,31 @@ class ContactFormValidation
               when textStatus is 'timeout' then 'The operation timed-out.'
 
             $ submitButton
-            	.prop 'disabled', false
+            .prop 'disabled', false
             $ flashDiv
-              .removeClass 'alert-danger'
-              .addClass 'alert-danger'
+            .removeClass 'alert-danger'
+            .addClass 'alert-danger'
             $ flashDiv
-              .find '.title'
-              .text 'Error'
+            .find '.title'
+            .text 'Error'
             $ flashDiv
-              .find '.message'
-              .text message
+            .find '.message'
+            .text message
           success: (data, textStatus, jqXHR) ->
             $ flashDiv
-              .removeClass 'alert-success'
-              .addClass 'alert-success'
+            .removeClass 'alert-success'
+            .addClass 'alert-success'
             $ flashDiv
-              .find '.title'
-              .text 'Success!'
+            .find '.title'
+            .text 'Success!'
             $ flashDiv
-              .find '.message'
-              .text 'Message successfully sent.'
+            .find '.message'
+            .text 'Message successfully sent.'
           complete: (jqXHR, textStatus) ->
             # Show the flash `<div>` and then hide it after 7 seconds
             $ flashDiv
-              .show 'slow'
-                .delay 7000
-                  .hide 'slow'
+            .show 'slow'
+            .delay 7000
+            .hide 'slow'
 
 contactForm = new ContactFormValidation $('form'), $('#flash')

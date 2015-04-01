@@ -27,6 +27,7 @@ scripts:
            <div class="input-group">
              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
              <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required>
+             <span aria-hidden="true" class="glyphicon glyphicon-remove form-control-feedback" style="display:none;"></span>
            </div>
          </div>
         <div class="form-group">
@@ -34,12 +35,14 @@ scripts:
           <div class="input-group">
             <span class="input-group-addon">@</span>
             <input type="email" class="form-control" id="reply-to" name="reply-to" placeholder="Your email address" required>
+            <span aria-hidden="true" class="glyphicon glyphicon-remove form-control-feedback" style="display:none;"></span>
           </div>
         </div>
         <div class="form-group">
           <label for="message">Message</label>
           <div class="input-group">
             <textarea class="form-control" id="message" name="message" cols="100" rows="3" placeholder="Your message" required></textarea>
+            <span aria-hidden="true" class="glyphicon glyphicon-remove form-control-feedback" style="display:none;"></span>
           </div>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
