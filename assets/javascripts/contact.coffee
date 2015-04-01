@@ -39,10 +39,21 @@ class ContactFormValidation
       del: =>
         document.cookie = "#{@name}=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path="
 
-    if not Cookie.find 'state'
-      object =
-    	  'didContact':true
-      cookie = new Cookie 'state', object, 7
+    if Cookie.find 'state'
+      value = new Cookie 'state'
+      .unserializedValue()
+
+      autofill = (input, values) ->
+        value = values[input.name]
+        input.disabled = true
+        if input.value?(value)
+          true
+        else if input.text?(value)
+          true
+        false
+
+      autofill input, value.values for input in $ 'form input, textarea'
+      return true
 
     $ @form
       .find 'button[type="submit"]'
@@ -58,10 +69,20 @@ class ContactFormValidation
             $ @submitButton
             .prop 'disabled', true
             url = $ @form
-           				.attr 'action'
-            data = $ @form
-            				.serialize()
-            @send url, data, @submitButton, @flashDiv
+            .attr 'action'
+            serializedString = $ @form
+            .serialize()
+            serializedArray = $ @form
+            .serializeArray()
+
+            normalize = (serializedObj) ->
+              normalizedObj = {}
+              normalizedObj[serializedObj.name] = serializedObj.value
+              normalizedObj
+
+            normalizedValues = (normalize object for object in serializedArray)
+
+            @send url, serializedString, normalizedValues, @submitButton, @flashDiv
 
     @markup = (field, success)->
       parentDiv = field.parentElement
@@ -100,44 +121,52 @@ class ContactFormValidation
             retVal = false
       retVal
 
-    @send = (url, data, submitButton, flashDiv) ->
-       $.ajax
-          url: url
-          data: data
-          method: 'POST'
-          error: (jqXHR, textStatus, errorThrown) ->
-            message = switch
-              when textStatus is 'abort' then 'The operation has been cancelled.'
-              when textStatus is 'error' then 'Unknown error.'
-              when textStatus is 'parsererror' then 'Failed parsing the response.'
-              when textStatus is 'timeout' then 'The operation timed-out.'
+    @send = (url, serializedString, normalizedArray, submitButton, flashDiv) ->
+      $.ajax
+        url: url
+        data: serializedString
+        method: 'POST'
+        error: (jqXHR, textStatus, errorThrown) ->
+          message = switch
+            when textStatus is 'abort' then 'The operation has been cancelled.'
+            when textStatus is 'error' then 'Unknown error.'
+            when textStatus is 'parsererror' then 'Failed parsing the response.'
+            when textStatus is 'timeout' then 'The operation timed-out.'
 
-            $ submitButton
-            .prop 'disabled', false
-            $ flashDiv
-            .removeClass 'alert-danger'
-            .addClass 'alert-danger'
-            $ flashDiv
-            .find '.title'
-            .text 'Error'
-            $ flashDiv
-            .find '.message'
-            .text message
-          success: (data, textStatus, jqXHR) ->
-            $ flashDiv
-            .removeClass 'alert-success'
-            .addClass 'alert-success'
-            $ flashDiv
-            .find '.title'
-            .text 'Success!'
-            $ flashDiv
-            .find '.message'
-            .text 'Message successfully sent.'
-          complete: (jqXHR, textStatus) ->
-            # Show the flash `<div>` and then hide it after 7 seconds
-            $ flashDiv
-            .show 'slow'
-            .delay 7000
-            .hide 'slow'
+          $ submitButton
+          .prop 'disabled', false
+          $ flashDiv
+          .removeClass 'alert-danger'
+          .addClass 'alert-danger'
+          $ flashDiv
+          .find '.title'
+          .text 'Error'
+          $ flashDiv
+          .find '.message'
+          .text message
+        success: (data, textStatus, jqXHR) ->
+          state =
+            didContact:true
+            dateContacted: new Date()
+            values: normalizedArray
+
+          cookie = new Cookie 'state', state, 7
+          cookie.save()
+
+          $ flashDiv
+          .removeClass 'alert-success'
+          .addClass 'alert-success'
+          $ flashDiv
+          .find '.title'
+          .text 'Success!'
+          $ flashDiv
+          .find '.message'
+          .text 'Message successfully sent.'
+        complete: (jqXHR, textStatus) ->
+          # Show the flash `<div>` and then hide it after 7 seconds
+          $ flashDiv
+          .show 'slow'
+          .delay 7000
+          .hide 'slow'
 
 contactForm = new ContactFormValidation $('form'), $('#flash')
