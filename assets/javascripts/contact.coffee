@@ -2,6 +2,7 @@
 ---
 class ContactFormValidation
   constructor: (@form, @flashDiv) ->
+
     class Cookie
       # Class methods
       constructor: (@name, value, expiryInDays = 0) ->
@@ -39,20 +40,22 @@ class ContactFormValidation
       del: =>
         document.cookie = "#{@name}=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path="
 
+    # Has the user already submitted a form?
     if Cookie.find 'state'
+      $ @form
+        .find 'button[type="submit"]'
+        .prop 'disabled', true
+
       value = new Cookie 'state'
       .unserializedValue()
 
       autofill = (input, values) ->
-        value = values[input.name]
+        aValue = values[input.name]
         input.disabled = true
-        if input.value?(value)
-          true
-        else if input.text?(value)
-          true
-        false
+        input.value = aValue
+        input
 
-      autofill input, value.values for input in $ 'form input, textarea'
+      autofill input, value.values for input in $ @form.find 'input, textarea'
       return true
 
     $ @form
@@ -75,12 +78,12 @@ class ContactFormValidation
             serializedArray = $ @form
             .serializeArray()
 
-            normalize = (serializedObj) ->
-              normalizedObj = {}
-              normalizedObj[serializedObj.name] = serializedObj.value
-              normalizedObj
+            normalizedValues = {}
+            normalize = (obj, node) ->
+              obj[node.name] = node.value
+              obj
 
-            normalizedValues = (normalize object for object in serializedArray)
+            normalize normalizedValues, object for object in serializedArray
 
             @send url, serializedString, normalizedValues, @submitButton, @flashDiv
 
@@ -127,6 +130,8 @@ class ContactFormValidation
         data: serializedString
         method: 'POST'
         error: (jqXHR, textStatus, errorThrown) ->
+          cookie = new Cookie 'state', state, 7
+          cookie.save()
           message = switch
             when textStatus is 'abort' then 'The operation has been cancelled.'
             when textStatus is 'error' then 'Unknown error.'
