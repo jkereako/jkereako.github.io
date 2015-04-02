@@ -56,6 +56,16 @@ class ContactFormValidation
         input
 
       autofill input, value.values for input in $ @form.find 'input, textarea'
+
+      $ @flashDiv
+      .removeClass 'alert-warning'
+      .addClass 'alert-warning'
+      $ @flashDiv
+      .find '.message'
+      .text "You've already sent me a message. I'll get back to you."
+      $ @flashDiv
+      .show 'slow'
+
       return true
 
     $ @form
