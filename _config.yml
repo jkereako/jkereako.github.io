@@ -7,7 +7,9 @@ highlighter: pygments
 permalink: /:year/:month/:title/
 url: http://jeffkereakoglow.com
 
-ga_tracking_id: 'UA-56330510-1'
+# Settings
+branch: master
+ga_tracking_id: UA-56330510-1
 
 defaults:
   - scope:

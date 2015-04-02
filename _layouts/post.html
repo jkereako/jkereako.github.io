@@ -4,20 +4,26 @@ layout: default
 
 <article id="main-content" role="article" itemscope itemtype="http://schema.org/Article">
   {% include page_header.html %}
+  <meta itemprop="about" content="{{ page.excerpt }}" />
+  <meta itemprop="description" content="{{ page.excerpt }}" />
+  <meta itemprop="author" content="{{ site.name }}" />
+  <meta itemprop="copyrightHolder" content="{{ site.name }}" />
+  <meta itemprop="copyrightYear" content="{{ page.date | date: '%Y' }}" />
+  <meta itemprop="datePublished" content="{{ page.date | date: '%F' }}" />
 
   <div class="content" itemprop="articleBody" data-swiftype-index="true">
     {{ content }}
   </div>
-  <hr>
 
+  <hr>
 
   <footer role="complementary">
     {% if page.revisions %}
-    <section id="revisions">
-      <small>Revisions</small>
-      <dl>
+    <section class="revisions" id="revisions">
+      <h5>Revisions</h5>
+      <dl class="dl-horizontal">
       {% for revision in page.revisions %}
-        <dt>Revised {{ revision[0] | ordinalize }}</dt>
+        <dt>{{ revision[0] | ordinalize }}</dt>
         <dd>{{ revision[1] | markdownify }}</dd>
       {% endfor %}
       </dl>
