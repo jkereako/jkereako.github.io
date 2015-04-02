@@ -2,5 +2,9 @@
   <h1 class="page-header title" itemprop="name">
     <a href="{{ page.url }}">{{ page.title | camel_break }}</a>
   </h1>
-  {% include last_update.html %}
+  {% if page.is_post %}
+  <p class="lead">
+    Published on <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date_to_string }}</time>
+  </p>
+  {% endif %}
 </header>
