@@ -1,10 +1,11 @@
 ---
 ---
+# ContactFormValidation
 class ContactFormValidation
   constructor: (@form, @flashDiv) ->
 
+    # Cookie
     class Cookie
-      # Class methods
       constructor: (@name, value, expiryInDays = 0) ->
         @expiry = ''
         if expiryInDays
@@ -16,10 +17,12 @@ class ContactFormValidation
           when typeof value is 'string' or typeof value is 'number' then value
           when typeof value is 'object' then JSON.stringify value
 
+      # Class method: returns the cookie if it exists
       @find = (name) ->
         return cookie for cookie in document.cookie.split ';' when !!~cookie.indexOf name
 
-      # Public methods
+      # Parses the cookie's data and return an object if the cookie's value is
+      # an object
       unserializedValue: =>
         cookieStr = Cookie.find @name
 
@@ -34,13 +37,16 @@ class ContactFormValidation
         catch
           unescapedValue
 
+      # Writes the cookie to the browser's storage
       save: =>
         document.cookie = "#{@name}=#{escape @value}; expires=#{@expiry}; path=/"
 
+      # Invalidates the cookie
       del: =>
         document.cookie = "#{@name}=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path="
 
-    # Has the user already submitted a form?
+    # Check if the user already successfully submitted a form. If he has, then
+    # prevent him from sending another one until the cookie expires.
     if Cookie.find 'state'
       $ @form
         .find 'button[type="submit"]'
@@ -93,10 +99,13 @@ class ContactFormValidation
               obj[node.name] = node.value
               obj
 
+            # Iterate over the array returned by jQuery("form").serializeArray()
+            # and save the values in an object where the key is the input name
+            # and the value is the value
             normalize normalizedValues, object for object in serializedArray
 
             @send url, serializedString, normalizedValues, @submitButton, @flashDiv
-
+    # Apply mark up to the fields to alert the user if there is an error
     @markup = (field, success)->
       parentDiv = field.parentElement
       $ parentDiv
@@ -140,8 +149,6 @@ class ContactFormValidation
         data: serializedString
         method: 'POST'
         error: (jqXHR, textStatus, errorThrown) ->
-          cookie = new Cookie 'state', state, 7
-          cookie.save()
           message = switch
             when textStatus is 'abort' then 'The operation has been cancelled.'
             when textStatus is 'error' then 'Unknown error.'
@@ -160,6 +167,7 @@ class ContactFormValidation
           .find '.message'
           .text message
         success: (data, textStatus, jqXHR) ->
+          # Save the state in a cookie.
           state =
             didContact:true
             dateContacted: new Date()
