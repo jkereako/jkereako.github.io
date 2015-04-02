@@ -2,12 +2,14 @@
 title: Essential tools for the traditional home bar
 author: Jeff Kereakoglow
 categories : Mixology
-excerpt: Everything you need to get started.
+excerpt: Everything you need to start your traditional, home cocktail bar.
 layout: post
+revisions:
+  2015-04-02: Edited excerpt and copy
 ---
-There's a lot of crap out there telling you what you need to start your home bar. This article will add to that pile.
+There is a lot of garbage out there which tells you what you need to start your home bar. This article will add to that garbage pile.
 
-Also, by "traditional" I mean pre-prohibition era. So no vodka and no tequila.
+Also, by "traditional" I mean pre-prohibition era. So, no vodka and no tequila.
 
 # Essentials
 You need everything in this list.
@@ -33,6 +35,6 @@ You need everything in this list.
 - **Only shake when mixing with citrus juice.** Stir the cocktail otherwise.
 - **Aim for a volume of 3 ounces.** This will provide enough to really taste the drink without getting you cocked.
 - **If the drink is too strong, then dilute it with water**. For example, do not pour more sweet vermouth into a strong Manhattan, it will actually make it stronger and throw off the taste.
-- **Make simple syrup as you need it**. This shit will grow mold if you make it ahead of time and don't use it within a week. Simple syrup is simple to make. Make it to order.
+- **Make simple syrup as you need it**. This stuff will grow mold if you make it ahead of time and don't use it within a week. Simple syrup is simple to make. Make it to order.
 - **Store vermouth in the refrigerator and use it within 3 months.** An open bottle of wine has a shelf life, and although vermouth is a fortified wine, it is foremost still a wine.
 - **Serve all of your cocktails in old fashioned glasses.** Cocktail glasses, also known as martini glasses are awkward to hold and easy to spill.
