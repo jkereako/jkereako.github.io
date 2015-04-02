@@ -7,6 +7,8 @@ highlighter: pygments
 permalink: /:year/:month/:title/
 url: http://jeffkereakoglow.com
 
+ga_tracking_id: 'UA-56330510-1'
+
 defaults:
   - scope:
       path: ""      # empty string for all files
