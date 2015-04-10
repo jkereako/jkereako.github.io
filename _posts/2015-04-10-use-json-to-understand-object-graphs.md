@@ -4,6 +4,8 @@ author: Jeff Kereakoglow
 category: Code
 excerpt: JSON is a statically defined object graph. Use it to design models before writing code.
 layout: post
+revisions:
+  2015-04-10: Fixed bugs in the code
 ---
 > Core Data is an object-graph management and persistence framework. Core Data is not a relational database or a relational database management
 system (RDBMS).
@@ -67,17 +69,19 @@ Data for more information.
 @interface Trip : NSManagedObject
 
 @property (nonatomic) NSString *type;
-@property (nonatomic) NSNumber *vtrID;
+@property (nonatomic) NSString *vtrID;
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSDate *endDate;
-
-// This is the 1:n relationship
 @property (nonatomic) NSSet *catches;
 
-- (void)addCatch:(Catch *)catch;
-- (void)removeCatch:(Catch *)catch;
-- (void)addCatches:(NSSet *)catches;
-- (void)removeCatches:(NSSet *)catches;
+@end
+
+@interface Trip (CoreDataGeneratedAccessors)
+
+- (void)addCatchesObject:(Catch *)value;
+- (void)removeCatchesObject:(Catch *)value;
+- (void)addCatches:(NSSet *)values;
+- (void)removeCatches:(NSSet *)values;
 
 @end
 {% endhighlight %}
@@ -89,71 +93,121 @@ Data for more information.
 @import Foundation;
 @import CoreData;
 
+@class Trip;
+
 @interface Catch : NSManagedObject
 
 @property (nonatomic) NSString *species;
 @property (nonatomic) NSNumber *poundsRetained;
 @property (nonatomic) NSNumber *poundsDiscarded;
+@property (nonatomic) Trip *trip;
 
 @end
 {% endhighlight %}
 
 # Implementation
-The code below creates and relates the `Trip` and `Catch` objects through
-assignment.
+The code below creates the object graph between the `Trip` and `Catch` objects.
+At the bottom of the routine, you'll see a series of `NSLog()` statements. This
+shows how to traverse the object graph.
 
-> NOTE
->
-> Although the code below should compile, you must know that the code is over
-simplified. I cannot explain Core Data better than Apple so I left out details.
+Everything between `// BEGIN Core Data boilerplate` and
+`// END Core Data boilerplate` sets up the Core Data stack. For the purpose of
+this article, you do not need to understand what is happening, but know that it
+is required for all Core Data applications.
+
 {% highlight objective-c %}
 //  AppDelegate.m
 #import "AppDelegate.h"
 #import "Trip.h"
 #import "Catch.h"
 
+NSString *const kModelName = @"MyModel";
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication * __unused)application
 didFinishLaunchingWithOptions:(NSDictionary * __unused)launchOptions {
+  //-- Create store
   NSManagedObjectContext *moc;
+  NSManagedObjectModel *mom;
+  NSURL *docsDir;
+  NSURL *modelURL;
+  NSURL *storeURL;
   NSError *error;
 
+  // BEGIN Core Data boilerplate
+  docsDir = [[NSFileManager defaultManager]
+             URLForDirectory:NSDocumentDirectory
+             inDomain:NSUserDomainMask
+             appropriateForURL:nil
+             create:YES
+             error:&error];
+  storeURL = [docsDir URLByAppendingPathComponent:
+              [NSString stringWithFormat:@"%@.sqlite", kModelName]];
+
+  modelURL = [[NSBundle mainBundle] URLForResource:kModelName
+                                     withExtension:@"momd"];
+  mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
   moc = [[NSManagedObjectContext alloc]
-        initWithConcurrencyType:NSMainQueueConcurrencyType];
+         initWithConcurrencyType:NSMainQueueConcurrencyType];
+
+  moc.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
+                                    initWithManagedObjectModel:mom];
+  [moc.persistentStoreCoordinator
+   addPersistentStoreWithType:NSSQLiteStoreType
+   configuration:nil
+   URL:storeURL
+   options:nil
+   error:&error];
+  // END Core Data boilerplate
 
   //-- Create managed objects
   Trip *trip = [NSEntityDescription insertNewObjectForEntityForName:@"Trip"
                                              inManagedObjectContext:moc];
-  Catch *atlanticHerring = [Catch new];
-  Catch *monkFish = [Catch new];
-  Catch *tileFish = [Catch new];
+
+  Catch *atlanticHerring = [NSEntityDescription
+                            insertNewObjectForEntityForName:@"Catch"
+                                     inManagedObjectContext:moc];
+  Catch *monkFish = [NSEntityDescription
+                      insertNewObjectForEntityForName:@"Catch"
+                               inManagedObjectContext:moc];
+  Catch *tileFish = [NSEntityDescription
+                      insertNewObjectForEntityForName:@"Catch"
+                               inManagedObjectContext:moc];
 
   trip.type = @"days at sea";
-  trip.vtrID = @8392093827;
+  trip.vtrID = @"8392093827";
   trip.startDate = [NSDate date];
   trip.endDate = [NSDate date];
 
   atlanticHerring.species = @"atlantic herring";
-  atlanticHerring.poundsRetained = 200;
-  atlanticHerring.poundsDiscarded = 50;
+  atlanticHerring.poundsRetained = @200;
+  atlanticHerring.poundsDiscarded = @50;
 
   monkFish.species = @"monkfish";
-  monkFish.poundsRetained = 50;
+  monkFish.poundsRetained = @50;
   monkFish.poundsDiscarded = 0;
 
   tileFish.species = @"tilefish";
-  tileFish.poundsRetained = 130;
-  tileFish.poundsDiscarded = 30;
+  tileFish.poundsRetained = @130;
+  tileFish.poundsDiscarded = @30;
 
-  trip.addCatches = [NSSet setWithObjects:atlanticHerring,
-                                          monkFish,
-                                          tileFish, nil];
-  // At this point, `trip` contains information identical to the JSON above.
+  [trip addCatches:[NSSet setWithObjects:atlanticHerring,
+                    monkFish,
+                    tileFish, nil]];
+
+  // Print all catches related to `trip`
+  NSLog(@"%@", trip.catches);
+
+  // Find the `Trip` object associated with each `Catch` object
+  NSLog(@"%@", atlanticHerring.trip);
+  NSLog(@"%@", monkFish.trip);
+  NSLog(@"%@", tileFish.trip);
+
+  return YES;
+
 }
 {% endhighlight %}
-A `Trip` object is created and for the 3 catches described in the JSON above, a
-`Catch` object is created and assigned to `trip`. This is an object graph.
 
 # Further reading
 To understand Core Data, you **must** read these documents in this order:
