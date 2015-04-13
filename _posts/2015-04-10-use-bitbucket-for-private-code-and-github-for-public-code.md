@@ -4,9 +4,10 @@ author: Jeff Kereakoglow
 category: Career
 excerpt: Did you know that Bitbucket offers an unlimited number of private repositories for free?
 layout: post
+revisions:
+  2015-04-13: Added lead sentence
 ---
-It's senseless to pay GitHub money to host private repositories when you can
-host an unlimited number of private repositories on [BitBucket][bb] at no cost.
+Did you know that [Bitbucket][bb] offers an unlimited number of private repositories for free? I didn't until March of this year.
 
 ## What a free account offers
 Below is a table which describes what a free account for each service will get
