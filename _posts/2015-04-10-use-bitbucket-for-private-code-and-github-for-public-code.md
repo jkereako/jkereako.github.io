@@ -5,7 +5,7 @@ category: Career
 excerpt: Did you know that Bitbucket offers an unlimited number of private repositories for free?
 layout: post
 revisions:
-  2015-04-13: Added lead sentence
+  2015-04-13: Added lead sentence and fixed formatting of the name "Bitbucket"
 ---
 Did you know that [Bitbucket][bb] offers an unlimited number of private repositories for free? I didn't until March of this year.
 
@@ -18,13 +18,13 @@ you. "Public" and "private" refer to public and private repositories, and
 {:.table .table-striped}
 |              | Public    | Private   |    Users     |
 |:-------------|:----------|:---------:|-------------:|
-|**BitBucket** | Unlimited | Unlimited |  5           |
+|**Bitbucket** | Unlimited | Unlimited |  5           |
 |**GitHub**    | Unlimited | 5         |  Unlimited   |
 
-GitHub charges for private repositories and BitBucket charges for multiple
+GitHub charges for private repositories and Bitbucket charges for multiple
 users.
 
-My guess is BitBucket targets corporations—Atlassian owns BitBucket and
+My guess is Bitbucket targets corporations—Atlassian owns Bitbucket and
 [Atlassian makes software for large organizations][as]—while GitHub targets freelance
 developers and start ups. Again, just my guess.
 
@@ -32,8 +32,8 @@ developers and start ups. Again, just my guess.
 This is a no-brainer. It's an unlimited number of private repositories for free.
 
 ## GitHub for public repositories
-Although I knew about BitBucket for as along as I've known about GitHub (circa
-2009), I had no idea BitBucket allowed an unlimited number of private
+Although I knew about Bitbucket for as along as I've known about GitHub (circa
+2009), I had no idea Bitbucket allowed an unlimited number of private
 repositories until March, 2015 because I **never go there**. I think I speak for
 most folks when I say that when I want to explore code shared among the
 developer community, I go to GitHub.
