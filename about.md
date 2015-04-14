@@ -4,13 +4,14 @@ title: About me
 date: 2015-03-27 13:24:00
 permalink: /about/
 ---
-I am a sofware developer who just surpassed 6 years in the professional world. I
-contract as an iOS developer for [NOAA Fisheries][garfo].
+I am a software developer who just surpassed 6 years in the professional world.
+Currently, I contract as an iOS developer for [NOAA Fisheries][garfo].
 
 I spent over 3 years at [NESN][nesn] as a WordPress developer where I made a
-[native iPhone app][nesn-mobile]—yes, I know it has horrible reviews but in my defensethe app had bad reviews before my date of hire—and automated the posting
-of their [TV schedule][nesn-tv-schedule]. I wrote several WordPress plugins and
-interacted directly with the folks at Automattic.
+[native iPhone app][nesn-mobile]—yes, I know it has lousy reviews but in my
+defense the app had lousy reviews before my date of hire—and automated the
+posting of their [TV schedule][nesn-tv-schedule]. I wrote several WordPress
+plugins and interacted directly with the folks at Automattic.
 
 I truly enjoy programming. I work on side projects and maintain this blog to
 stay sharp and relevant. I will often upload my code to GitHub.
