@@ -1,4 +1,7 @@
 # Description
-This is the source code for my personal website [jeffkereakoglow.com](http://jeffkereakoglow.com). I will use this as a notepad for ideas simply so I can remember them. Most of the writings will be code related, but other stuff will find its way in here as well. 
+The personal website of [Jeff Kereakoglow](http://jeffkereakoglow.com). Built
+with Jekyll, GitHub Pages and Bootstrap.
 
-This site, like all other GitHub pages, is built with [Jekyll](http://jekyllrb.com/).
+# License
+Code: [MIT](http://opensource.org/licenses/mit-license.php)
+Content: [Creative Commons, BY](http://creativecommons.org/licenses/by/3.0/)
