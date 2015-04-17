@@ -1,14 +1,16 @@
+#-- Global
 language: en-US
 name: Jeff Kereakoglow
 title: Jeff Kereakoglow
 description: Ideas, notes, code
 timezone: America/New_York
-highlighter: pygments
 permalink: /:year/:month/:title/
 url: http://jeffkereakoglow.com
-
-# Settings
 branch: master
+
+#-- Styles
+highlighter: pygments
+
 ga_tracking_id: UA-56330510-1
 
 defaults:

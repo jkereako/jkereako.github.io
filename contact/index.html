@@ -6,7 +6,7 @@ excerpt: Get in touch with me
 scripts:
   - /assets/javascripts/contact.js
 ---
-<div id="flash" class="alert alert-success alert-dismissible" role="alert" style="display:none;">
+<div id="flash hidden-print" class="alert alert-success alert-dismissible" role="alert" style="display:none;">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -16,7 +16,7 @@ scripts:
 
 <article id="main-content" role="article" itemscope itemtype="http://schema.org/Article">
   {% include page_header.html %}
-  <div class="content" itemprop="articleBody" data-swiftype-index="true">
+  <div class="content hidden-print" itemprop="articleBody" data-swiftype-index="true">
     <p>
       Wanna get in touch? Fill out the form below.
     </p>
@@ -53,6 +53,8 @@ scripts:
         This true purpose of this page was to learn CoffeeScript. You will notice <a href="https://github.com/jkereako/jkereako.github.io/blob/master/assets/javascripts/contact.coffee" target="_blank" title="contact.coffee">the source code is complex</a>. The intention was not to confuse but to understand how to write object-oriented code in CoffeeScript.
       </small>
     </p>
-
+  </div>
+  <div class="visible-print-block">
+    Why are you printing this page?
   </div>
 </article>
