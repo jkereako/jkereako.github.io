@@ -17,7 +17,7 @@ you. "Public" and "private" refer to public and private repositories, and
 
 {:.table .table-striped}
 |              | Public    | Private   |    Users     |
-|:-------------|:----------|:---------:|-------------:|
+|--------------|-----------|-----------|--------------|
 |**Bitbucket** | Unlimited | Unlimited |  5           |
 |**GitHub**    | Unlimited | 5         |  Unlimited   |
 

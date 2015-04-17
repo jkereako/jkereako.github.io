@@ -60,14 +60,17 @@ h6 {
 .h6 {
 	@extend %extend_1;
 }
-@media(min-width: 1200px) {
-	.container {
-		width: 970px;
-	}
-}
 
 .container.main {
   margin-top: 20px;
+}
+
+.blog-main {
+	@media (min-width: 992px) {
+		font-size: 1.3em;
+		line-height: 1.5;
+	}
+
 }
 
 .blog-masthead {
@@ -92,25 +95,27 @@ h6 {
 		text-decoration: none;
 	}
 }
+
 .blog-header {
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
+
 .blog-title {
-	margin-top: 30px;
-	margin-bottom: 0;
-	font-size: 60px;
-	font-weight: normal;
+	@media (min-width: 992px) {
+		margin-top: 30px;
+		margin-bottom: 0;
+		font-size: 4.3em;
+		font-weight: normal
+	}
 }
+
 .blog-description {
-	font-size: 20px;
+	font-size: 1.5em;
 	color: $white;
 	font-family: $title_font;
 }
-.blog-main {
-	font-size: 18px;
-	line-height: 1.5;
-}
+
 .sidebar-module {
 	padding: 15px;
 	margin: 0 -15px 15px;
@@ -141,17 +146,7 @@ h6 {
 		border-radius: 30px;
 	}
 }
-.blog-post {
-	margin-bottom: 60px;
-}
-.blog-post-title {
-	margin-bottom: 5px;
-	font-size: 40px;
-}
-.blog-post-meta {
-	margin-bottom: 20px;
-	color: $color_mountain_mist_approx;
-}
+
 .blog-footer {
 	padding: 40px 0;
 	color: $color_mountain_mist_approx;
