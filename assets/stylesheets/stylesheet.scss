@@ -116,25 +116,6 @@ h6 {
 	font-family: $title_font;
 }
 
-.sidebar-module {
-	padding: 15px;
-	margin: 0 -15px 15px;
-}
-.sidebar-module-inset {
-	padding: 15px;
-	background-color: $color_wild_sand_approx;
-	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
-	border-radius: 4px;
-	p:last-child {
-		margin-bottom: 0;
-	}
-	ul:last-child {
-		margin-bottom: 0;
-	}
-	ol:last-child {
-		margin-bottom: 0;
-	}
-}
 .pager {
 	margin-bottom: 60px;
 	text-align: left;
