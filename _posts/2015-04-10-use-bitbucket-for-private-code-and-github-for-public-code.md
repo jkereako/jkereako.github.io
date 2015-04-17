@@ -1,7 +1,7 @@
 ---
 title: Use Bitbucket for private code and GitHub for public code
 author: Jeff Kereakoglow
-category: Career
+category: Code
 excerpt: Did you know that Bitbucket offers an unlimited number of private repositories for free?
 layout: post
 revisions:
