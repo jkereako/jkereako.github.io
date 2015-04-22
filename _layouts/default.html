@@ -16,18 +16,9 @@
     <meta name="description" content="{{ site.description | strip_html }}"/>
     <link rel="canonical" href="{{ site.url }}"/>
     {% endif %}
-
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:creator" content="@alexis_digital"/>
-    {% if page.id %}
     <meta name="twitter:title" content="{{ page.title }}"/>
     <meta name="twitter:description" content="{{ page.excerpt | strip_html | escape }}"/>
-    {% else %}
-    <meta name="twitter:title" content="{{ site.title }}"/>
-    <meta name="twitter:description" content="{{ site.description | strip_html | escape}}"/>
-    {% endif %}
     <meta property="twitter:account_id" content="{{ site.twitter }}"/>
-
     <meta property="og:site_name" content="{{ site.title }}"/>
     <meta property="og:image" content="{{ site.url }}/touch-icon-ipad-retina.png"/>
     {% if page.id %}
@@ -49,10 +40,8 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/assets/stylesheets/pygment_trac.css" media="screen">
 

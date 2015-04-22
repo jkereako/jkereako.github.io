@@ -1,8 +1,8 @@
 ---
 layout: page
+date: 2015-04-22 10:20:00
 title: Reading
-date: 2015-03-27 13:24:00
-excerpt: Books I've read and books I'm reading.
+excerpt: A list of books which were recently read
 permalink: /reading/
 ---
 The most effective way to change your life is to read novels. The first book to

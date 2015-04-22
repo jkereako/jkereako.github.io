@@ -1,7 +1,8 @@
 ---
 layout: page
+date: 2015-04-22 10:20:00
 title: About me
-date: 2015-03-27 13:24:00
+excerpt: A short description of Jeff Kereakoglow
 permalink: /about/
 ---
 I am a software developer who just surpassed 6 years in the professional world.
