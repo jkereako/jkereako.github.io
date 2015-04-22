@@ -2,16 +2,17 @@
 layout: page
 title: Reading
 date: 2015-03-27 13:24:00
-excerpt: Books I've read and boosk I'm reading.
+excerpt: Books I've read and books I'm reading.
 permalink: /reading/
 ---
+The most effective way to change your life is to read novels. The first book to
+have this effect on me was **The Catcher in the Rye**.
 
-Reading is a life skill. In fact, it was a computer science professor who made
-me realize this. [Computing I with Jim Canning][jim] included an introduction to
-programming with C as well as **[The Elements of Style][eos]**, the preamble to
-the Constitution, **[High Noon][high-noon]** and **[Flatland][flatland]**.
-[Here's the webpage for his enrichment program][gauss]. Notice the healthy mix
-of programming with fiction.
+I didn't feel this way until college. It was a computer science professor who
+made me realize how important reading is. [Computing I with Jim Canning][jim]
+included an introduction to programming with C as well as **[The Elements of
+Style][eos]**, the preamble to the Constitution, **[High Noon][high-noon]** and **[Flatland][flatland]**. [Here's the webpage for his enrichment program]
+[gauss]. Notice the healthy mix of programming with fiction.
 
 I'm currently reading **[Unbroken][current]**. It's a true story about an speedy
 Italian immigrant who got drafted into the Army Air Corps during World War 2.
@@ -41,9 +42,11 @@ Next on the list is **A Perfect Storm**, **Into Thin Air** and **John Adams**.
     </thead>
     <tbody>
       {% for book in site.data.books %}
-      <tr {% if book.active %} class="info"{% endif %}>
+      <tr {% if book.active %} class="info"{% endif %} data-row="{{ forloop.index }}">
         <th scope="row">{{ forloop.index }}</th>
-        <td>{{ book.title }}</td>
+        <td>
+          {{ book.title }}{% if book.subtitle %}: {{ book.subtitle }}{% endif %}
+        </td>
       </tr>
       {% endfor %}
     </tbody>

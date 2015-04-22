@@ -1,16 +1,37 @@
 - title: Unbroken
   active: yes
+
 - title: Lonesome Dove
+
 - title: Kitchen Confidential
+  subtitle: Adventures in the Culinary Underbelly
+
 - title: A Dance with Dragons
-- title: Feast for Crows
-- title: Storm of Swords
+
+- title: A Feast for Crows
+
+- title: A Storm of Swords
+
 - title: Mile Marker Zero
-- title: To Have and To Have Not
-- title: The Old Man and The Sea
-- title: 'Key West: History of an Island of Dreams'
-- title: Clash of Kings
+  subtitle: The Moveable Feast of Key West
+
+- title: With Hemingway
+  subtitle: A Year in Key West and Cuba
+
+- title: To Have and to Have Not
+
+- title: The Old Man and the Sea
+
+- title: Key West
+  subtitle: History of an Island of Dreams
+
+- title: A Clash of Kings
+
 - title: Game of Thrones
+
 - title: Extra Virginity
+  subtitle: The Sublime and Scandalous World of Olive Oil
+
 - title: Divergent
+
 - title: The Art Forger
