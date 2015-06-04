@@ -14,15 +14,16 @@ included an introduction to programming with C as well as **[The Elements of
 Style][eos]**, the preamble to the Constitution, **[High Noon][high-noon]** and **[Flatland][flatland]**. [Here's the webpage for his enrichment program]
 [gauss]. Notice the healthy mix of programming with fiction.
 
-I'm currently reading **[Unbroken][current]**. It's a true story about an speedy
-Italian immigrant who got drafted into the Army Air Corps during World War 2.
-Last year, [it was made into a movie][unbroken-film] and was well received.
+## What I'm reading
+I'm currently reading **[Blink][current]**. It's an analysis of gut instinct
+(called "thin slicing"), which, according to the book, is actually a super-fast calculation based on past experience performed by the unconscious self.
 
-Before **Unbroken**, I read 200 pages of **[Lonesome Dove][previous]**. I had to
-put it down, it could not keep my attention. I want to give it another shot
-after I finish **Unbroken**.
-
-Next on the list is **A Perfect Storm**, **Into Thin Air** and **John Adams**.
+## What I just read
+I read most of **[Unbroken][previous]**. It was okay. The most exciting part was
+Louie's month at sea in a battered life raft. Aside from that, the writing went
+like this: "one time, Louie ran so fast his feet bled. Another time, Louie, ran
+so fast he got sick. Six weeks after, Louie still ran fast." After Louie was
+released from prison camp, the book got really boring, so I had to stop.
 
 <div class="panel panel-default">
   <div class="panel-heading">Books read</div>
@@ -60,5 +61,5 @@ Next on the list is **A Perfect Storm**, **Into Thin Air** and **John Adams**.
 [high-noon]: http://www.imdb.com/title/tt0044706
 [unbroken-film]: http://www.imdb.com/title/tt1809398
 
-[current]: http://books.google.com/books/about/Unbroken.html?id=-KmXoAEACAAJ
-[previous]: http://www.amazon.com/Lonesome-Dove-Novel-Larry-McMurtry/dp/1439195269
+[current]: http://gladwell.com/blink/
+[previous]: http://laurahillenbrandbooks.com/
