@@ -15,15 +15,20 @@ Style][eos]**, the preamble to the Constitution, **[High Noon][high-noon]** and 
 [gauss]. Notice the healthy mix of programming with fiction.
 
 ## What I'm reading
-I'm currently reading **[Blink][current]**. It's an analysis of gut instinct
-(called "thin slicing"), which, according to the book, is actually a super-fast calculation based on past experience performed by the unconscious self.
+**[For Whom the Bell Tolls][current]** by Earnest Hemingway. I'm not even 50
+pages into it.
 
 ## What I just read
-I read most of **[Unbroken][previous]**. It was okay. The most exciting part was
-Louie's month at sea in a battered life raft. Aside from that, the writing went
-like this: "one time, Louie ran so fast his feet bled. Another time, Louie, ran
-so fast he got sick. Six weeks after, Louie still ran fast." After Louie was
-released from prison camp, the book got really boring, so I had to stop.
+**[Blink][previous]**. I've mentioned before that I don't like non-fiction and
+this was no exception. But, I must say that I did learn from this book.  In
+particular, I learned that gut reactions are actually the unconscious mind
+hinting to the concious mind that "hey, we've seen this kind of pattern before,
+and the answer is usually this." I also learned that your unconscious can
+sometimes be wrong (i.e. when cops shoot suspects who are believed to be armed
+when they, in fact, are not) so you must supply your unconscious mind with
+knowledge to make more accurate judgements. The only way to do this is to train
+your conscious mind. Some of that knowledge will trickle down to the unconscious
+where it will remain for a lifetime.
 
 <div class="panel panel-default">
   <div class="panel-heading">Books read</div>
@@ -61,5 +66,5 @@ released from prison camp, the book got really boring, so I had to stop.
 [high-noon]: http://www.imdb.com/title/tt0044706
 [unbroken-film]: http://www.imdb.com/title/tt1809398
 
-[current]: http://gladwell.com/blink/
-[previous]: http://laurahillenbrandbooks.com/
+[current]: https://en.wikipedia.org/wiki/For_Whom_the_Bell_Tolls
+[previous]: http://gladwell.com/blink/
