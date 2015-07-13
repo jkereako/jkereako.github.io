@@ -8,10 +8,14 @@ revisions:
   2015-04-02: Edited formatting
 ---
 ## Problem
-You forked a repository on GitHub, made a bunch of changes and then pushed them to GitHub. Now you want to submit a pull-request to fix a bug you found. However, because your fork is a dozen revisions beyond the original repository you're certain your pull-request will be rejected.
+You forked a repository on GitHub, made a bunch of changes and then pushed them
+to GitHub. Now you want to submit a pull-request to fix a bug you found.
+However, because your fork is a dozen revisions beyond the original repository
+you're certain your pull-request will be rejected.
 
 ## Solution
-Create a new branch which copies the current state of the original repository, make your change, and then submit your pull-request.
+Create a new branch which copies the current state of the original repository,
+make your change, and then submit your pull-request.
 
 > NOTE
 >
@@ -27,7 +31,8 @@ Fetch the latest changes from the branch `upstream`:
   $ git fetch upstream
   {% endhighlight %}
 
-Create a new branch for the pull-request called `pr-bug-fix` and switch to that branch
+Create a new branch for the pull-request called `pr-bug-fix` and switch to that
+branch
   {% highlight sh %}
   $ git checkout -b pr-bug-fix
   {% endhighlight %}
@@ -37,4 +42,5 @@ Reset `pr-bug-fix` to the current state of `upstream`
   $ git reset --hard upstream/master --
   {% endhighlight %}
 
-Now `pr-bug-fix` is synchronized with the current state of the original repository. As such, you can safely fix the bug submit the pull-request.
+Now `pr-bug-fix` is synchronized with the current state of the original
+repository. As such, you can safely fix the bug submit the pull-request.
