@@ -10,6 +10,7 @@ branch: master
 
 #-- Styles
 highlighter: pygments
+markdown: kramdown
 
 ga_tracking_id: UA-56330510-1
 
