@@ -6,6 +6,8 @@ excerpt: It has been 10 long, forgetful years
 layout: post
 ---
 
+That's right. I'm writing this post on Halloween night in Salem, Massachusetts.
+
 The title of this post is ambiguous. What I mean by "forgetful" is I've, almost
 entirely, forgotten all I know about fundamental data structures and algorithms.
 I don't practice them daily, so knowledge of them naturally withered over time.
