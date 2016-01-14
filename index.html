@@ -7,7 +7,7 @@ title: Home
     <a href="{{ page.url }}">{{ page.title | camel_break }}</a>
   </h1>
 </header>
-{% for post in site.posts | limit: 8 %}
+{% for post in paginator.posts  %}
   {% if post.category == "Book review" %}
   {% else if %}
   <article class="excerpt">
@@ -18,3 +18,24 @@ title: Home
   </article>
   {% endif %}
 {% endfor %}
+
+<!-- Pagination links -->
+<nav>
+  <ul class="pager">
+    {% if paginator.previous_page %}
+    <li>
+      <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+    {% else %}
+    <li class="disabled">
+      <a class="previous" href="#">Previous</a>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li>
+      <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+    {% else %}
+    <li class="disabled">
+      <a class="next" href="#">Next</a>
+  {% endif %}
+    </li>
+  </ul>
+</nav>

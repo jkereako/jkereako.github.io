@@ -7,6 +7,7 @@ timezone: America/New_York
 permalink: /:year/:month/:title/
 url: http://jeffkereakoglow.com
 branch: master
+paginate: 8
 
 #-- Styles
 highlighter: pygments
