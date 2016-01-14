@@ -4,6 +4,7 @@ author: Jeff Kereakoglow
 category: Book review
 excerpt: Blink - The power of thinking without thinking
 layout: post
+permalink: 	/book-reviews/blink
 ---
 *Blink* provides insight and scientific explanation to gut reactions. It does
 this through a series of examples.
@@ -20,4 +21,3 @@ The unconscious mind is built from information gathered by the conscious mind,
 so folks can actually train their unconscious mind by absorbing information,
 consciously.  Not all of information will trickle down into the unconscious, but
 the information that does will stay there for a lifetime.
-

@@ -4,6 +4,7 @@ author: Jeff Kereakoglow
 category: Book review
 excerpt: Unbroken - a World War II story of survival, resilience, and redemption
 layout: post
+permalink: 	/book-reviews/unbroken
 ---
 
 *Unbroken* follows the story of a first generation Italian immigrant, Louie
@@ -25,4 +26,3 @@ I don't particularly like non-fiction unless it's information on a person I
 truly am interested in. Like, for instance, Thomas Jefferson. Non-fiction
 writers tend to be boring, and Laura Hillenbrand (the author of this book) is
 certainly boring.
-
