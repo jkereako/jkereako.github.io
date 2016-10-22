@@ -1,6 +1,20 @@
+- title: The Big Short
+  subtitle: Inside the Doomsday Machine
+  
+- title: Endurance
+  subtitle: Shackleton's Incredible Voyage
+  
+- title: Drinking Boston
+  subtitle: A History of the City and Its Spirits
+  
+- title: In the Heart of the Sea
+  subtitle: The Tragedy of the Whaleship Essex
+  
+- title: The Big Oyster
+  subtitle: History on the Half Shell
+  
 - title: Cod
   subtitle: A Biography of the Fish that Changed the World
-  active: yes
 
 - title: Orange is the New Black
   subtitle: My Year in a Women's Prison
@@ -18,9 +32,14 @@
 - title: The Perfect Storm
   subtitle: A True Story of Men Against the Sea
 
+- title: Ninety-two in the Shade
+
 - title: The Autobiography of Malcolm X
 
 - title: The Adventures of Huckleberry Finn
+
+- title: Work Smarts
+  subtitle: What CEOs Say You Need to Know to Get Ahead
 
 - title: The Adventures of Tom Sawyer
 
@@ -31,8 +50,6 @@
 
 - title: Unbroken
   subtitle: A World War II Story of Survival, Resilience, and Redemption
-
-- title: Lonesome Dove
 
 - title: Kitchen Confidential
   subtitle: Adventures in the Culinary Underbelly
